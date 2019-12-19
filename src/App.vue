@@ -2,19 +2,26 @@
   <div>
     <h1>Brewdog Beers</h1>
     <div class="main-container">
-      <beers-list :beers='beers'></beers-list>
+      <!-- <beers-list :beers='beers' /> -->
+      <beer-select :beers='beers'/>
+      <beer-detail :beer='selectedBeer' />
+
     </div>
   </div>
 </template>
 
 <script>
 import BeersList from './components/BeersList.vue';
+import { eventBus } from './main.js';
+import BeerDetail from './components/BeerDetail.vue';
+import BeerSelect from './components/BeerSelect.vue';
 
 export default {
   name: 'app',
   data() {
     return {
       beers: [],
+      selectedBeer: null
     };
   },
   mounted() {
@@ -22,15 +29,21 @@ export default {
     .then(response => response.json())
     .then(beers => this.beers = beers)
 
+    eventBus.$on('beer-selected', (beer) => {
+      this.selectedBeer = beer;
+    })
   },
   components: {
-    "beers-list": BeersList
-
-
+    "beers-list": BeersList,
+    "beer-detail": BeerDetail,
+    "beer-select": BeerSelect
   }
 }
 </script>
 
 <style>
-
+  .main-container {
+    display: flex;
+    justify-content: space-between;
+  }
 </style>

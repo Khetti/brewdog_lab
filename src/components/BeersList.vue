@@ -9,12 +9,14 @@
 
 <script>
 import ListComponent from './ListComponent.vue';
+import BeerSelect from './BeerSelect.vue';
 
 export default {
   name: 'beers-list',
   props: ['beers'],
   components: {
-    "list-beer": ListComponent
+    "list-beer": ListComponent,
+    "beer-select": BeerSelect
   }
 }
 </script>

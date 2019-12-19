@@ -1,5 +1,5 @@
 <template lang="html">
-
+  <li>{{beer.name}}</li>
 </template>
 
 <script>

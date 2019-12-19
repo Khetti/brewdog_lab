@@ -10,6 +10,7 @@
 <script>
 import ListComponent from './ListComponent.vue';
 import BeerSelect from './BeerSelect.vue';
+import FavouriteBeers from './FavouriteBeers.vue';
 
 export default {
   name: 'beers-list',

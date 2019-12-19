@@ -1,11 +1,10 @@
 <template>
   <div>
     <h1>Brewdog Beers</h1>
-    <div class="main-container">
+    <div id="main-container">
       <!-- <beers-list :beers='beers' /> -->
-      <beer-select :beers='beers'/>
-      <beer-detail :beer='selectedBeer' />
-
+      <beer-select class="beer-select" :beers='beers'/>
+      <beer-detail class="beer-detail" :beer='selectedBeer' />
     </div>
   </div>
 </template>
@@ -42,8 +41,17 @@ export default {
 </script>
 
 <style>
-  .main-container {
+  #main-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .beer-select {
+    justify-content: center;
+    align-self: center;
+  }
+
+  .beer-detail {
+
   }
 </style>

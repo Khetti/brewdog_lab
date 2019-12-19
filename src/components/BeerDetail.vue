@@ -4,13 +4,19 @@
     <p>{{ beer.tagline }}</p>
     <p>Description: {{ beer.description }}</p>
     <p>ABV: {{ beer.abv }}%</p>
+    <favourite-beers :beer="beer" :key="index"></favourite-beers>
   </div>
 </template>
 
 <script>
+import FavouriteBeers from './components/FavouriteBeers.vue';
+
 export default {
   name: 'beer-detail',
-  props: ['beer']
+  props: ['beer'],
+  components: {
+    "favourite-beers": FavouriteBeers
+  }
 }
 </script>
 
